@@ -48,9 +48,9 @@ public class Nurse extends User {
 	 * @return currentTime = the time the dose was logged
 	 */
 	public Calendar logDose(String medicationName, Patient patient) {
-		Medication medication =  MedicationList.getMedication(medicationName);
+		//Medication medication =  MedicationList.getMedication(medicationName);
 		Calendar currentTime = null; // fix this to get current time
-		patient.logMostRecentDose(medication, currentTime);
+		//patient.logMostRecentDose(medication, currentTime);
 		return currentTime;
 	} // end of parameterized constructor
 	

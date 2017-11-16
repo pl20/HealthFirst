@@ -1,5 +1,6 @@
 package users;
 import medicationprocessing.Medication;
+import medicationprocessing.MedicationList;
 import patientprocessing.Patient;
 
 /**
@@ -43,8 +44,8 @@ public class Doctor extends User {
 	 * @param medicationName = The name of the medication the Doctor is prescribing
 	 */
 	public void prescribeMedication(String medicationName, Patient patient) {
-		Medication newPrescription =  MedicationList.getMedication(medicationName);
-		patient.addPrescription(newPrescription);
+		//Medication newPrescription =  MedicationList.getMedication(medicationName);
+		//patient.addPrescription(newPrescription);
 	} // end of prescribeMedication method
 
 	/* (non-Javadoc)
