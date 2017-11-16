@@ -1,0 +1,26 @@
+Narcotic,
+Narcotic,
+Narcotic,
+Narcotic,
+Narcotic,
+OverTheCounter,
+OverTheCounter,
+OverTheCounter,
+OverTheCounter,
+OverTheCounter,
+Antibiotic,
+Antibiotic,
+Antibiotic,
+Antibiotic,
+Antibiotic,
+AntiInflamitory,
+AntiInflamitory,
+AntiInflamitory,
+AntiInflamitory,
+AntiInflamitory,
+
+
+For each type of medication (Narcotic, OverTheCounter, Antibiotic, AntiInflamitory) above, make 5 entries, the entries should look as follows:
+type,nameBrand,description,dosage in MilliGrams,minimum hours between dose, max hours between dose
+*** in between fields use a comma and no space like this example below:
+OverTheCounter,Motrin,put description here,600,6,8
