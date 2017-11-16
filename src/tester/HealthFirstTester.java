@@ -28,6 +28,7 @@ File Name: Medication.java
 public class HealthFirstTester {
 
 	public static void main(String[] args) {
+            
 		Administrator admin = new Administrator("John");
 		System.out.println(admin);
 		Doctor doc = new Doctor("Eddy");

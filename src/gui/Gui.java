@@ -46,8 +46,14 @@ public class Gui extends Application {
         Button nurse = new Button("Nurse");
         Button pharm = new Button("Pharmacist");
         
+            VBox vBox = new VBox();
+        vBox.getChildren().addAll(textArea, admin, doctor,nurse,pharm);
+        root.getChildren().add(vBox);    
+        
         admin.setOnAction((ActionEvent event) -> {
-            System.out.println("Administrator");
+		Administrator newadmin = new Administrator(textArea.getText());
+            
+System.out.println(newadmin);
         });
                 doctor.setOnAction((ActionEvent event) -> {
             System.out.println("Doctor");
@@ -59,10 +65,7 @@ public class Gui extends Application {
             System.out.println("Pharmacist");
         });                
         
-        VBox vBox = new VBox();
-        vBox.getChildren().addAll(textArea, admin, doctor,nurse,pharm);
-        
-        root.getChildren().add(vBox);
+
         
         primaryStage.setScene(new Scene(root, 500, 400));
         primaryStage.show();
