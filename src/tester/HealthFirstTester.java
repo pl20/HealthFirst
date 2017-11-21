@@ -38,7 +38,7 @@ public class HealthFirstTester extends Application {
 
 	private Stage primaryStage;
     public BorderPane rootLayout;
-	//public User userType = new User();
+	public User userType = new User();
 
 	public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -98,9 +98,9 @@ public class HealthFirstTester extends Application {
     }
     
 	public static void main(String[] args) {
-            User user = new User();
-            user.setName("test");
-            System.out.println("User is : "+user.getName());
+		User userType = new User();
+            userType.setName("test");
+            System.out.println("User is : "+userType.getName());
             launch(args);
 		/*Administrator admin = new Administrator("John");
 		System.out.println(admin);
@@ -112,6 +112,26 @@ public class HealthFirstTester extends Application {
 		
 		
 		
+		
+	}
+
+	public static void showDoctor() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void showNurse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void showAdmin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void showPharmacist() {
+		// TODO Auto-generated method stub
 		
 	}
 
