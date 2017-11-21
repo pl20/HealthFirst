@@ -243,5 +243,16 @@ public class Patient {
 	public void logMostRecentDose(Medication medication, Calendar timeStamp) {
 		// add code
 	} // end of logMostRecentDose method
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Patient [name=" + name + ", patientID=" + patientID + ", age=" + age + ", bloodPressure="
+				+ bloodPressure + ", heartRate=" + heartRate + ", weightInLbs=" + weightInLbs + ", heightInInches="
+				+ heightInInches + ", familyHistory=" + familyHistory + ", currentIllness=" + currentIllness
+				+ ", allergies=" + allergies + ", numOfPrescriptions=" + numOfPrescriptions + "]";
+	}
 	
 } // end of Patient class

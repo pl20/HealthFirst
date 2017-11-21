@@ -24,7 +24,7 @@ public class MedicationList {
 	public static final int MEDICATION_LIST_ARRAY_SIZE = 50;
 	
 	private int numOfElements = 0;
-	private Medication[] medications = null;
+	static Medication[] medications = null;
 	
 	/**
 	 * Default constructor for the MedicationList class
@@ -43,5 +43,25 @@ public class MedicationList {
 		// fix code
 		return null;
 	} // end of getMedication method
+	
+	/**
+	 * adds a Medication to the medication list medications array and increments the numOfElements instance variable by 1
+	 * @param medication = a Medication to add
+	 */
+	public void addMedication(Medication medication) {
+		medications[numOfElements++] = medication;
+	} // end of addMedication method
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		String completeString = "";
+			for (int l = 0; l < this.numOfElements; l++) {
+				completeString += medications[l].toString() + "\n";
+			} 
+			return completeString;
+	}
+	
 } // end of MedicationList class

@@ -197,5 +197,18 @@ public class Medication {
 	public void setAntiInflamitory(boolean isAntiInflamitory) {
 		this.isAntiInflamitory = isAntiInflamitory;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Medication [name=" + name + ", description=" + description + ", dosageInMg=" + dosageInMg
+				+ ", minDosageTimeHours=" + minDosageTimeHours + ", maxDosageTimeHours=" + maxDosageTimeHours
+				+ ", isNarcotic=" + isNarcotic + ", isOverTheCounter=" + isOverTheCounter + ", isAntibiotic="
+				+ isAntibiotic + ", isAntiInflamitory=" + isAntiInflamitory + "]";
+	}
+	
+	
 	
 } // end of Medication class

@@ -60,10 +60,10 @@ public class MedicationDatabaseManager {
 	/**
 	 * attempts to open the file to process, and throws an exception if it can't
 	 */
-	public void openFile() {
+	public void openFile(String inputFileName) {
 		try {
 			// Attempt to open the file
-			fileIn = new Scanner(new FileInputStream(getFileName()));
+			fileIn = new Scanner(new FileInputStream(inputFileName));
 		}
 		catch (FileNotFoundException e)
 		{
@@ -75,9 +75,46 @@ public class MedicationDatabaseManager {
 	/**
 	 * processes the file (reads in the file, processes in the information to create 
 	 * Medication objects stored in the file to populate the MedicationList) 
+	 * @param medicationList = the list of medications to populate from the file
 	 */
-	public void processInput() {
-		// finish code
+	public void processInput(MedicationList medicationList) {
+		while (fileIn.hasNextLine()) {
+			String theString = fileIn.nextLine();
+			String[] theTokens = theString.split(",");
+			if (theTokens[0].equalsIgnoreCase("narcotic")) {
+				String name = theTokens[1]; 
+				String description = theTokens[2];
+				int dosageInMg = Integer.parseInt(theTokens[3]);
+				int minDosageTimeHours = Integer.parseInt(theTokens[4]);
+				int maxDosageTimeHours = Integer.parseInt(theTokens[5]);
+				Medication medication = new Medication(name, description, dosageInMg, minDosageTimeHours, maxDosageTimeHours, true, false, false, false);
+				medicationList.addMedication(medication);
+			} else if (theTokens[0].equalsIgnoreCase("overthecounter")) {
+				String name = theTokens[1]; 
+				String description = theTokens[2];
+				int dosageInMg = Integer.parseInt(theTokens[3]);
+				int minDosageTimeHours = Integer.parseInt(theTokens[4]);
+				int maxDosageTimeHours = Integer.parseInt(theTokens[5]);
+				Medication medication = new Medication(name, description, dosageInMg, minDosageTimeHours, maxDosageTimeHours, false, true, false, false);
+				medicationList.addMedication(medication);
+			} else if (theTokens[0].equalsIgnoreCase("antibiotic")) {
+				String name = theTokens[1]; 
+				String description = theTokens[2];
+				int dosageInMg = Integer.parseInt(theTokens[3]);
+				int minDosageTimeHours = Integer.parseInt(theTokens[4]);
+				int maxDosageTimeHours = Integer.parseInt(theTokens[5]);
+				Medication medication = new Medication(name, description, dosageInMg, minDosageTimeHours, maxDosageTimeHours, false, false, true, false);
+				medicationList.addMedication(medication);
+			} else if (theTokens[0].equalsIgnoreCase("antiinflamitory")) {
+				String name = theTokens[1]; 
+				String description = theTokens[2];
+				int dosageInMg = Integer.parseInt(theTokens[3]);
+				int minDosageTimeHours = Integer.parseInt(theTokens[4]);
+				int maxDosageTimeHours = Integer.parseInt(theTokens[5]);
+				Medication medication = new Medication(name, description, dosageInMg, minDosageTimeHours, maxDosageTimeHours, false, false, false, true);
+				medicationList.addMedication(medication);
+			}
+		}
 	}
 	
 } // end of MedicationDatabaseManager class

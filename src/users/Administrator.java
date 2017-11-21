@@ -50,7 +50,7 @@ public class Administrator extends User {
 	 * @param currentIllness = Any illness' that the patient currently has
 	 * @param allergies = Any allergies that the patient has
 	 */
-	public Patient createNewPatient(String name, int patientID, int age, String bloodPressure,
+	public Patient createNewPatient(String name, int age, String bloodPressure,
 			int heartRate, double weightInLbs, double heightInInches, String familyHistory, 
 			String currentIllness, String allergies) {
 		Patient patient = new Patient(name, age, bloodPressure, heartRate, weightInLbs, 
