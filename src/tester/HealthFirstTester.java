@@ -1,10 +1,3 @@
-package tester;
-
-import patientprocessing.Patient;
-import users.Administrator;
-import users.Doctor;
-import gui.Gui;
-import static javafx.application.Application.launch;
 /**
 This program:
 HealthFirst allows doctors, nurses, and pharmacists to prescribe, review, distribute, 
@@ -25,17 +18,100 @@ File Name: Medication.java
 */
 
 
-public class HealthFirstTester {
+package tester;
 
-	public static void main(String[] args) {
+
+import java.io.IOException;
+import javafx.application.Application;
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import users.User;
+import view.LoginScreenController;
+
+
+public class HealthFirstTester extends Application {
+
+	private Stage primaryStage;
+    public BorderPane rootLayout;
+	//public User userType = new User();
+
+	public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("HealthFirst");
+
+        initRootLayout();
+        showPersonOverview();
+        //showDoctor();
+
+    }
+	
+	/**
+     * Initializes the main background
+     */
+    public void initRootLayout() {
+        try {
+            // Load root layout from fxml file.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HealthFirstTester.class.getResource("/view/RootLayout.fxml"));
+            rootLayout = (BorderPane) loader.load();
+            System.out.println("Hello?");
+            // Show the scene containing the root layout.
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Shows the LoginScreen
+     * 
+     */
+    public void showPersonOverview() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HealthFirstTester.class.getResource("/view/LoginScreen.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+            LoginScreenController controller = loader.getController();
+            controller.setMainApp(this);
             
-		Administrator admin = new Administrator("John");
+            // Set person overview into the center of root layout.
+            rootLayout.setCenter(personOverview);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+	
+    /**
+     * Returns the main stage.
+     * @return
+     */
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+    
+	public static void main(String[] args) {
+            User user = new User();
+            user.setName("test");
+            System.out.println("User is : "+user.getName());
+            launch(args);
+		/*Administrator admin = new Administrator("John");
 		System.out.println(admin);
 		Doctor doc = new Doctor("Eddy");
 		System.out.println(doc);
 		Patient steve = new Patient();
 		doc.prescribeMedication("drug A", steve);
-                Gui.graphics();
+                Gui.graphics();*/
+		
+		
+		
 		
 	}
 
